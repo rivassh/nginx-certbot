@@ -23,5 +23,6 @@ RUN curl -L -o /tmp/redis.tar.gz https://github.com/phpredis/phpredis/archive/5.
     && docker-php-ext-install redis
 COPY ./start.sh /start.sh
 RUN docker-php-ext-install pcntl
+RUN apt install host -y
 EXPOSE 9000
 CMD ["php-fpm"]
