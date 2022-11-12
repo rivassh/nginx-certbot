@@ -6,6 +6,7 @@ do
 cd ~/nginx-certbot/;docker-compose  -f ~/nginx-certbot/medrdr.yml ps|grep Exit
 if [ $? -eq 0 ]
 then
-cd ~/nginx-certbot/;docker-compose  -f ~/nginx-certbot/medrdr.yml up -d	
+cd ~/nginx-certbot/;docker-compose  -f ~/nginx-certbot/medrdr.yml  restart
+echo `date +%F-%T` >> /tmp/mysql.log
 fi
 done
