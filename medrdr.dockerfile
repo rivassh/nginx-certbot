@@ -24,5 +24,6 @@ RUN curl -L -o /tmp/redis.tar.gz https://github.com/phpredis/phpredis/archive/5.
 COPY ./start.sh /start.sh
 RUN docker-php-ext-install pcntl
 RUN apt install host -y
+RUN docker-php-ext-install bcmath
 EXPOSE 9000
 CMD ["php-fpm"]
