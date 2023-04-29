@@ -8,6 +8,7 @@ services:
       - ./data/nginx:/etc/nginx/conf.d
       - ./data/certbot/conf:/etc/letsencrypt
       - ./data/certbot/www:/var/www/certbot
+      - ./data/www:/home/forge/certbot
       - ${MEDRDR}:/var/www/html/
     ports:
       - "80:80"
