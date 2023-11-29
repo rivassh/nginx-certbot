@@ -15,7 +15,7 @@ RUN docker-php-ext-install zip
 #    && echo "deb-src [trusted=yes] https://deb.nodesource.com/node_18.x bullseye main" > /etc/apt/sources.list.d/nodesource.list \
 #    && apt update \
 #    && apt-get install nodejs -y
-#RUN apt install supervisor -y
+RUN apt install supervisor -y
 RUN mkdir -p /usr/src/php/ext/
 RUN curl -L -o /tmp/redis.tar.gz https://github.com/phpredis/phpredis/archive/5.3.7.tar.gz \
     && tar xfz /tmp/redis.tar.gz \
