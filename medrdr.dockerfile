@@ -1,6 +1,6 @@
-FROM php:8.2-fpm
+FROM php:8.3-fpm
 RUN cat /etc/debian_version
-RUN apt-get update 
+RUN apt-get update --allow-insecure-repositories
 RUN curl -sS https://getcomposer.org/installer -o composer-setup.php \
     && php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 RUN apt-get install libsodium-dev -y

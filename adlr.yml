@@ -1,0 +1,23 @@
+# For more information: https://laravel.com/docs/sail
+version: '3'
+services:
+    adlr.ir:
+        build:
+            context: ./
+            dockerfile: medrdr.dockerfile
+            # args:
+            #    WWWGROUP: '${WWWGROUP}'
+        tty: true 
+        #environment:
+                #    WWWUSER: '${WWWUSER}'
+        volumes:
+            - '${ADLRIR}:/var/www/html'
+            - '${ADLRIR}/supervisord.conf:/etc/supervisord.conf'
+              #        command: ["sh -c php-fpm && supervisord"]
+        command: /start.sh
+                # bash -c "php-fpm && supervisord -c /etc/supervisord.conf"
+        networks:
+            - sail
+networks:
+    sail:
+            external: true
