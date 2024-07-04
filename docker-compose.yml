@@ -11,6 +11,7 @@ services:
       - ./data/certbot/www:/var/www/certbot
       - ./data/www:/home/forge/certbot
       - ${MEDRDR}:/var/www/html/
+      - ${PMIN60}:/var/www/pmin60/
     ports:
       - "80:80"
       - "443:443"

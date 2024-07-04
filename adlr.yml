@@ -16,6 +16,7 @@ services:
               #        command: ["sh -c php-fpm && supervisord"]
         command: /start.sh
                 # bash -c "php-fpm && supervisord -c /etc/supervisord.conf"
+        restart: always
         networks:
             - sail
 networks:
