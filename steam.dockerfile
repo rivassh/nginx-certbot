@@ -8,8 +8,10 @@ RUN docker-php-ext-install sodium
 RUN docker-php-ext-install mysqli pdo pdo_mysql
 RUN docker-php-ext-install exif 
 RUN apt-get install zlib1g-dev libzip-dev unzip libpng-dev -y
+RUN apt-get install -y libxml2-dev -y
 RUN docker-php-ext-install gd 
 RUN docker-php-ext-install zip
+RUN docker-php-ext-install soap
 #RUN apt-get install net-tools htop -y
 #RUN touch /etc/apt/sources.list.d/nodesource.list \
 #    && echo "deb-src [trusted=yes] https://deb.nodesource.com/node_18.x bullseye main" > /etc/apt/sources.list.d/nodesource.list \
@@ -26,7 +28,5 @@ COPY ./start.sh /start.sh
 RUN docker-php-ext-install pcntl
 #RUN apt install host -y
 RUN docker-php-ext-install bcmath
-RUN apt update 
-RUN apt install host wget -y 
 EXPOSE 9000
 CMD ["php-fpm"]

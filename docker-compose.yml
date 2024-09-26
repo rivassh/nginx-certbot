@@ -10,7 +10,7 @@ services:
       - ./data/www:/home/forge/certbot
       - ${MEDRDR}:/var/www/html/
       - ${PMIN60}:/var/www/pmin60/
-      - ./websites/steam:/var/www/steam/
+      - ./websites:/var/www/websites/
     ports:
       - "80:80"
       - "443:443"

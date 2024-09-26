@@ -1,18 +1,17 @@
 services:
-    noabatgir.ir:
+    start-team.ir:
         build:
             context: ./
-            dockerfile: medrdr.dockerfile
+            dockerfile: steam.dockerfile
             # args:
             #    WWWGROUP: '${WWWGROUP}'
         tty: true 
         #environment:
                 #    WWWUSER: '${WWWUSER}'
         volumes:
-            - '${MEDRDR}:/var/www/html'
-            - '${MEDRDR}/supervisord.conf:/etc/supervisord.conf'
-            - './data/medrdr/php.ini:/usr/local/etc/php/php.ini'
-              #        command: ["sh -c php-fpm && supervisord"]
+            - '${STEAM}:/var/www/${STEAM}'
+            - '${STEAM}/supervisord.conf:/etc/supervisord.conf'
+              # command: ["sh -c php-fpm && supervisord"]
         command: /start.sh
                 # bash -c "php-fpm && supervisord -c /etc/supervisord.conf"
         networks:
@@ -24,7 +23,7 @@ services:
               #            - selenium
 
     mysql:
-        image: 'mysql:latest'
+        image: 'mysql/mysql-server:8.0'
         environment:
             MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
             MYSQL_ROOT_HOST: "%"
